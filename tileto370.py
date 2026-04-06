@@ -63,7 +63,7 @@ class TileAlias(IntEnum):
     GenericPotion = -668  # generic potion ! -> ruby potion
     GenericScroll = -694  # generic scroll ? -> scroll of enchant armor
     GenericSpellbook = -737  # generic spellbook + -> parchment spellbook
-    GenericWand = -780  # generic wand / -> glass wand
+    GenericWand = -780  # generic wand / and wand of statis -> glass wand
     GenericCoin = -807  # generic coin $ -> gold piece
     GenericGem = -808  # generic gem * -> white gem
     GenericLargeRock = -844  # generic large rock ` -> boulder
@@ -71,6 +71,7 @@ class TileAlias(IntEnum):
     GenericIronChain = -847  # generic iron chain _ -> iron chain
     GenericVenom = -849  # generic venom . -> splash of acid venom
     SilverMace = -450  # silver mace -> mace
+    WoodenShield = -525  # shields of drain/shock resistance -> small shield
     CrystalHelmet = -471  # crystal helmet / helm of brilliance -> dented pot
     GoldDragonScaleMail = -485  # gold dragon scale mail -> yellow dragon scale mail
     GoldDragonScales = -495  # gold dragon scales -> yellow dragon scales
@@ -167,12 +168,19 @@ def build_tile_order() -> tuple[int, ...]:
         TileAlias.GoldDragonScaleMail,
         *index_range(477, 487),
         TileAlias.GoldDragonScales,
-        *index_range(487, 583),
+        *index_range(487, 526),
+        # shields of drain/shock resistance
+        TileAlias.WoodenShield,
+        TileAlias.WoodenShield,
+        *index_range(526, 583),
         TileAlias.PerforatedAmulet,
         TileAlias.CubicalAmulet,
         *index_range(583, 777),
         TileAlias.CheckeredSpellbook,
-        *index_range(777, 871),
+        *index_range(777, 785),
+        # wand of stasis -> glass wand
+        TileAlias.GenericWand,
+        *index_range(785, 871),
         TileAlias.EngravingInRoom,
         871,
         872,
