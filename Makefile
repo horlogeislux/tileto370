@@ -1,6 +1,6 @@
 # Tooling
 PYTHON ?= python3
-SCRIPT := tileto370.py
+SCRIPT := tileto500.py
 
 # Conversion inputs/outputs
 RESOURCE_DIR := resources/nevanda

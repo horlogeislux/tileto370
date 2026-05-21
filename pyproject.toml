@@ -1,7 +1,7 @@
 [project]
-name = "tileto370"
+name = "tileto500"
 version = "1.0.0"
-description = "Tile conversion from NetHack 3.6.x to 3.7.0 beta."
+description = "Tile conversion from NetHack 3.6.x to 5.0.0."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

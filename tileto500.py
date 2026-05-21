@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert NetHack 3.6.x tilesets to the NetHack 3.7.0 beta layout."""
+"""Convert NetHack 3.6.x tilesets to the NetHack 5.0.0 layout."""
 # MIT License
 
 # Copyright (c) 2025 Hector Denis
@@ -38,7 +38,7 @@ logger = logging.getLogger(__name__)
 
 TileExtractor = Callable[[int], Image.Image | None]
 
-OUTPUT_SUFFIX: Final[str] = "-370"
+OUTPUT_SUFFIX: Final[str] = "-500"
 TILES_PER_ROW: Final[int] = 40
 OUTPUT_TILE_ROWS: Final[int] = 58
 STATUE_TILE_ID_OFFSET: Final[int] = 1082
@@ -47,7 +47,7 @@ FALLBACK_BACKGROUND_COLOR: Final[str] = "magenta"
 
 @unique
 class TileAlias(IntEnum):
-    """Redirections for 3.7 tiles that have no exact 3.6 tile."""
+    """Redirections for 5.0.0 tiles that have no exact 3.6 tile."""
 
     DisplacerBeast = -38  # displacer beast -> panther
     GoldBabyDragon = -143  # gold baby dragon -> yellow baby dragon
@@ -115,7 +115,7 @@ def index_range(start: int, stop: int) -> list[int]:
 
 
 def build_tile_order() -> tuple[int, ...]:
-    """Build the 3.7 tile output order mapped to 3.6 tile indices."""
+    """Build the 5.0.0 tile output order mapped to 3.6 tile indices."""
     return (
         *duplicate_range(0, 41),
         *[TileAlias.DisplacerBeast] * 2,
@@ -262,7 +262,7 @@ class ConversionOptions:
 
 
 class TilesetConverter:
-    """Convert one NetHack 3.6.x tileset image to 3.7.0 layout."""
+    """Convert one NetHack 3.6.x tileset image to 5.0.0 layout."""
 
     def __init__(self, source_path: Path, options: ConversionOptions) -> None:
         """Open the source tileset and initialize output/extraction strategy."""
@@ -388,7 +388,7 @@ def make_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         formatter_class=argparse.HelpFormatter,
         prog="horlogeislux's tileset converter",
-        description="Convert NetHack 3.6.x tileset(s) to NetHack 3.7.0 beta format.",
+        description="Convert NetHack 3.6.x tileset(s) to NetHack 5.0.0 format.",
         epilog="",
         add_help=False,
     )

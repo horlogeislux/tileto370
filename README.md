@@ -1,25 +1,25 @@
-Last updated 6 April 2026.
+Last updated 21 May 2026.
 
-# `tileto370.py`
-Convert NetHack 3.6.x tilesets to the NetHack 3.7.0 beta layout.
+# `tileto500.py`
+Convert NetHack 3.6.x tilesets to the NetHack 5.0.0 layout.
 
-The script reads one or more source tileset images, reorders/copies tiles to the 3.7 layout, and writes new output files with a suffix.
+The script reads one or more source tileset images, reorders/copies tiles to the 5.0.0 layout, and writes new output files with a suffix.
 
 
 ## Quick Start
 ```bash
-git clone https://github.com/horlogeislux/tileto370.git
-cd tileto370
+git clone https://github.com/horlogeislux/tileto500.git
+cd tileto500
 
 uv sync
 source .venv/bin/activate
 
-python tileto370.py /path/to/tileset.png --tile-width 32
+python tileto500.py /path/to/tileset.png --tile-width 32
 ```
 
 ## CLI Usage
 ```bash
-python tileto370.py [--help] [--tile-width TILE_WIDTH] [--tile-height TILE_HEIGHT] \
+python tileto500.py [--help] [--tile-width TILE_WIDTH] [--tile-height TILE_HEIGHT] \
                     [--suffix SUFFIX] [--mode MODE] \
                     paths [paths ...]
 ```
@@ -28,7 +28,7 @@ python tileto370.py [--help] [--tile-width TILE_WIDTH] [--tile-height TILE_HEIGH
 - `--help`: show help and exit.
 - `--tile-width`, `-w`: tile width in pixels.
 - `--tile-height`, `-h`: tile height in pixels.
-- `--suffix`: output suffix (default: `-370`).
+- `--suffix`: output suffix (default: `-500`).
 - `--mode`, `-m`: conversion mode (default: `magenta`).
 - Note: short `-h` is used for tile height, so help is available as `--help`.
 
@@ -44,7 +44,7 @@ python tileto370.py [--help] [--tile-width TILE_WIDTH] [--tile-height TILE_HEIGH
 Set `--mode` to any Pillow color value (for example `magenta`, `green`, `#339AFA`).
 
 Behavior:
-- Existing tiles are reordered into the 3.7 output layout.
+- Existing tiles are reordered into the 5.0.0 output layout.
 - Missing/negative alias tiles keep the selected background color.
 
 ### 2. `redirect`
@@ -52,11 +52,11 @@ Fill missing/negative alias tiles by redirecting to similar old tiles.
 
 Example:
 ```bash
-python tileto370.py tileset.png -w 32 -m redirect --suffix _redirect
+python tileto500.py tileset.png -w 32 -m redirect --suffix _redirect
 ```
 
 ### 3. Fuse mode (file path)
-Set `--mode` to a file path (for example a sparse 3.7 base tileset image).
+Set `--mode` to a file path (for example a sparse 5.0.0 base tileset image).
 The converted output is pasted onto that file.
 
 Important:
@@ -75,39 +75,39 @@ Currently these paths raise `NotImplementedError`.
 ## Examples
 Get help:
 ```bash
-python tileto370.py --help
+python tileto500.py --help
 ```
 
 Basic conversion:
 ```bash
-python tileto370.py tileset.png -w 32
+python tileto500.py tileset.png -w 32
 ```
 
 Equivalent rectangular form:
 ```bash
-python tileto370.py tileset.png --tile-width 32 --tile-height 32
+python tileto500.py tileset.png --tile-width 32 --tile-height 32
 ```
 
 Custom background color:
 ```bash
-python tileto370.py tileset.png -w 32 --mode "#339AFA" --suffix _hex
+python tileto500.py tileset.png -w 32 --mode "#339AFA" --suffix _hex
 ```
 
-Fuse onto a sparse 3.7 base:
+Fuse onto a sparse 5.0.0 base:
 ```bash
-python tileto370.py tileset.png -w 32 --mode newtiles.png --suffix _fuse
+python tileto500.py tileset.png -w 32 --mode newtiles.png --suffix _fuse
 ```
 
 ## Result Images
-Definitive Nevanda 3.7.0 tileset:
-[resources/nevanda/nevanda-370-fuse.png](resources/nevanda/nevanda-370-fuse.png)
+Definitive Nevanda 5.0.0 tileset:
+[resources/nevanda/nevanda-500-fuse.png](resources/nevanda/nevanda-500-fuse.png)
 
-![Nevanda 3.7.0](resources/nevanda/nevanda-370-fuse.png)
+![Nevanda 5.0.0](resources/nevanda/nevanda-500-fuse.png)
 
-Official reference 3.7.0 tileset:
-[resources/nhtiles/nhtiles-370.png](resources/nhtiles/nhtiles-370.png)
+Official reference 5.0.0 tileset:
+[resources/nhtiles/nhtiles-500.png](resources/nhtiles/nhtiles-500.png)
 
 Please read the official repository and license:
-<https://github.com/NetHack/NetHack/tree/NetHack-3.7>
+<https://github.com/NetHack/NetHack/tree/NetHack-5.0>
 
-![Official 3.7.0](resources/nhtiles/nhtiles-370.png)
+![Official 5.0.0](resources/nhtiles/nhtiles-500.png)

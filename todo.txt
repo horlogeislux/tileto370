@@ -1,0 +1,12 @@
+Adding a new tile:
+OK README.md - date
+OK tileto500.py - converter
+OK resources/nhtiles-500 x2 - reference .bmp and .png
+
+
+THEN
+OK resources/nevanda/nevanda-newtiles.png
+OK resources/nevanda/nevanda-500-fuse.png
+
+INTERNET:
+Issue numbering
